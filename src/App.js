@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { ToDoItem } from "./components/ToDoItem";
 import { CreateItem } from "./components/CreateItem";
 
@@ -26,6 +26,11 @@ function App() {
 
         setTodos(todosNew);
     }
+
+    useEffect(() => {
+        let unfinishedTasksCouner = todos.filter(t => t.done === false).length;
+        document.title = `you have ${unfinishedTasksCouner} not finished tasks`;
+    });
 
     return (
         <>
