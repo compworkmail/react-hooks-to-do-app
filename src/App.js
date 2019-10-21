@@ -30,7 +30,10 @@ function App() {
     return (
         <>
             <h1>Todo list</h1>
-            <CreateItem />
+            <CreateItem
+                changeTodosState={changeTodosState}
+                todosLength={todos.length}
+            />
             <ul>
                 {todos.map(todo => {
                     return (
